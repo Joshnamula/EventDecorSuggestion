@@ -1,50 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Header.css';
 
-const Header = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, 300); 
-    return () => {
-      clearTimeout(handler); 
-    };
-  }, [searchTerm]);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (debouncedSearchTerm.trim()) {
-      onSearch(debouncedSearchTerm); 
-      setSearchTerm(''); 
-    }
-  };
-
+const Header = () => {
   return (
     <header className="header">
-      <div className="header-flex-container">
+      <div className="header-container">
+        {/* Logo Section */}
         <div className="logo">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJKSgDrXGCXUJB2i7WUSaG4gH6vcOruJVEtGDCE6tKmoM9T_pFketlLuYasSQMb27t-c0&usqp=CAU"
-            alt="Logo"
+          <img 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJKSgDrXGCXUJB2i7WUSaG4gH6vcOruJVEtGDCE6tKmoM9T_pFketlLuYasSQMb27t-c0&usqp=CAU" 
+            alt="Logo" 
           />
         </div>
 
+        {/* Search Bar */}
         <div className="search-bar">
-          <form onSubmit={handleSearch}>
-            <input
-              type="text"
-              placeholder="Search Decorations..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button className="search-button" type="submit">Search</button>
-          </form>
+          <input type="text" placeholder="Search flowers, cakes, gifts, etc." />
+          <button className="search-button">Search</button>
         </div>
 
-        <div className="icons">
+      {/* Icon Section */}
+      <div className="icons">
           <div className="pin">
             <img
               src="https://illustoon.com/photo/12199.png"

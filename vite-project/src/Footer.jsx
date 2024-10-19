@@ -62,7 +62,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="copyright">
-          © 1994-2024            All rights reserved.
+          © 1994-2024  All rights reserved.
         </div>
         <div className="social-media">
           <span>Keep in touch</span>
@@ -73,7 +73,14 @@ const Footer = () => {
             <i className="fab fa-instagram"></i>
           </div>
         </div>
-       
+        {/* Uncomment this block when adding payment method logos */}
+        {/* <div className="payment-methods">
+          <img src="visa-logo-url" alt="Visa" />
+          <img src="paypal-logo-url" alt="PayPal" />
+          <img src="mastercard-logo-url" alt="MasterCard" />
+          <img src="discover-logo-url" alt="Discover" />
+          <img src="paytm-logo-url" alt="PayTM" />
+        </div> */}
       </div>
     </footer>
   );
